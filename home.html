@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CURRENCY CONVERTER</title>
+
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-16x16.png">
+
+    <!-- Your custom CSS file -->
+
+    <style>
+        /* Custom CSS for styling and transitions */
+        
+        .info {
+            color: #03e9f4;
+            border: solid 1px #03e9f4;
+            padding: 10px;
+            border-radius: 15px;
+            width: 50%;
+            margin-left: 25%;
+        }
+        
+        body {
+            background: url('code.jpg') no-repeat center center fixed;
+            background-size: cover;
+            backdrop-filter: blur(15px);
+            padding-top: 56px;
+        }
+        
+        .navbar {
+            background-color: #141e30;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar-brand {
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px #03e9f4;
+        }
+        
+        .navbar-nav .nav-link {
+            color: #fff;
+            transition: color 0.3s ease-in-out;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: #03e9f4;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #03e9f4;
+        }
+        
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+        }
+        
+        .container:hover {
+            box-shadow: 0 0 20px #03e9f4;
+        }
+        
+        label {
+            font-weight: bold;
+        }
+        
+        select,
+        input {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #020107;
+            border-radius: 4px;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+        
+        select:focus,
+        input:focus {
+            border-color: #03e9f4;
+            outline: 0;
+            box-shadow: 0 0 5px rgba(174, 0, 255, 0.5);
+        }
+        
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #03e9f4;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+        
+        button:hover {
+            background-color: #03e9f4;
+        }
+        
+        #result {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        .contain {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            align-items: center;
+            justify-self: center;
+            justify-content: center;
+        }
+        
+        .box {
+            margin: 10px;
+            width:80%;
+            height: auto;
+            background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), /* Top-to-bottom gradient for frosted effect */
+            linear-gradient(45deg, transparent 50%, rgba(255, 255, 255, 0.1) 50%), /* Diagonal gradient lines */
+            linear-gradient(-45deg, transparent 50%, rgba(255, 255, 255, 0.1) 50%);
+            /* Diagonal gradient lines */
+            border-radius: 10px;
+            /* Rounded corners for a smoother look */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            /* Optional shadow effect */
+            color: #fff;
+            /* Text color for better visibility */
+            text-align: center;
+            padding: 12px;
+        }
+        
+        .box:hover {
+            transform: scale(1.05);
+            transition-duration: 0.3s;
+            /* Enlarge the box on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            /* Increase shadow on hover */
+            background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), linear-gradient(45deg, transparent 50%, rgba(255, 255, 255, 0.2) 50%), linear-gradient(-45deg, transparent 50%, rgba(255, 255, 255, 0.2) 50%);
+        }
+    </style>
+    
+ 
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+
+        <a class="navbar-brand" style="margin-left: 35%;" href="index.html">Currency Converter</a>
+        <br>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="convert.html">Converter</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="market.html">Market</a>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+    <style>
+        .carousel-item img {
+          width: 100%;
+          max-height: 500px;
+          object-fit: cover; /* This ensures the image covers the entire container while maintaining aspect ratio */
+          
+        }
+      </style>
+      
+      <div id="carouselExample" class="carousel slide" style="height: 400px;overflow:hidden; ">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="p1.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="p2.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="p3.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <style>
+        .animate-charcter{
+   text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+      font-size: 150px;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+      </style>
+      <div class="cont">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <center><h3 class="animate-charcter"> its about money</h3></center>
+          </div>
+        </div>
+      </div>
+      
+    <div class="contain">
+        <div class="box">
+            <h1>International Travel</h1> For travelers, currency converters are indispensable. They empower individuals to determine the equivalent worth of their domestic currency in the foreign currency of the country they are visiting. This information
+            is vital for budgeting, making purchases, and comprehending the expenses of goods and services abroad. A currency converter can be incredibly handy when traveling internationally for several reasons: Currency Exchange: Different countries
+            use different currencies, and exchange rates can fluctuate daily. A currency converter helps travelers quickly determine the value of their home currency in the local currency of the destination. This is crucial for making informed decisions
+            about expenses and budgeting. Budget Planning: Before the trip, travelers can use a currency converter to plan their budget more effectively. Knowing the exchange rate allows them to estimate how much money they'll need for accommodations,
+            meals, transportation, and activities. Shopping: When shopping in a foreign country, it's important to understand the cost of items in your own currency. A currency converter helps travelers assess whether a purchase is a good deal or if they
+            should look for a better option. Banking and ATMs: When using ATMs or making financial transactions in a foreign country, it's essential to know how much money you're withdrawing or spending in your home currency to avoid surprises and overdrafts.
+
+        </div>
+        <div class="box">
+            <h2>International Trade</h2>Businesses involved in global trade rely heavily on currency converters to manage currency-related risks and ascertain the costs of imported and exported goods. Precise currency conversion is imperative for pricing,
+            invoicing, and profit calculations. A currency converter can be extremely handy in international trade for various reasons: Currency Conversion: International trade involves dealing with multiple currencies. Buyers and sellers often use different
+            currencies. A currency converter allows businesses to quickly and accurately convert the value of products, services, or invoices from one currency to another. This ensures transparency and avoids misunderstandings due to currency differences.
+            Pricing and Cost Estimation: When negotiating deals, businesses need to understand the pricing of goods or services in their local currency. A currency converter helps them estimate the cost, set prices, and evaluate the competitiveness of
+            offers from different suppliers or customers. Risk Management: Currency exchange rates are volatile and can impact the profitability of international trade transactions. By using a currency converter, businesses can assess the potential impact
+            of currency fluctuations on their deals and implement risk management strategies like forward contracts or options to mitigate risks. Financial Reporting: Accurate financial reporting is crucial for international businesses. A currency converter
+            helps in converting financial data from foreign currencies into the reporting currency, making it easier to create financial statements, reports, and comply with accounting standards.
+
+        </div>
+        <div class="box">
+            <h1>Financial Markets</h1>Currency converters constitute foundational tools in the foreign exchange (Forex) market, the world's largest financial market. Traders and investors leverage these tools to observe exchange rates, dissect trends, and
+            make well-informed decisions, whether engaging in currency trading or investing in worldwide assets.A currency converter is a valuable tool in various financial market scenarios for several reasons: Exchange Rate Monitoring: Traders and investors
+            need to monitor exchange rates continuously as they fluctuate throughout the trading day. A currency converter allows them to quickly check the current exchange rate for specific currency pairs, which is crucial for making informed trading
+            decisions. Portfolio Valuation: Investors with holdings in multiple currencies need to regularly value their portfolios. A currency converter helps them calculate the total value of their assets in their preferred currency, facilitating portfolio
+            management. Risk Assessment: Currency converters aid in assessing and managing currency risk. If an investor or business has exposure to foreign currencies, they can use a currency converter to calculate potential gains or losses resulting
+            from currency fluctuations. Hedging Strategies: Traders and businesses often use currency converters to determine the optimal time to execute currency hedges. They can evaluate the cost of hedging against potential currency movements to protect
+            their investments or cash flows. Cross-Border Transactions: In international trade and commerce, buyers and sellers often transact in different currencies. A currency converter helps them agree on a fair exchange rate for their transactions,
+            ensuring transparency and minimizing currency-related disputes.
+
+        </div>
+        <div class="box">
+            <h2>Multinational Corporations</h2> Large multinational corporations that operate across various nations and currencies depend on currency converters for accounting, financial reporting, and overseeing international financial flows.A currency
+            converter is handy when dealing with multinational corporations (MNCs) for several reasons: Exchange Rate Fluctuations: MNCs often engage in international trade and investment, which exposes them to currency exchange rate fluctuations. A currency
+            converter helps in assessing the impact of these fluctuations on financial transactions and investments. It allows MNCs to calculate the value of their assets, liabilities, revenues, and expenses in their home currency, which is essential
+            for financial planning and risk management. Financial Reporting: MNCs are required to prepare financial statements in accordance with accounting standards such as International Financial Reporting Standards (IFRS) or Generally Accepted Accounting
+            Principles (GAAP). These standards often require the presentation of financial information in the company's functional currency. A currency converter helps in converting financial data from various currencies into the functional currency for
+            accurate reporting. Budgeting and Forecasting: MNCs need to create budgets and financial forecasts that incorporate the impact of currency exchange rate changes. A currency converter allows them to model different scenarios and assess the
+            potential effects of currency fluctuations on revenues, costs, and profitability. Pricing Strategies: When setting prices for their products or services in different markets, MNCs need to consider local currency values and competitive factors.
+            A currency converter helps them determine competitive pricing while maintaining desired profit margins.
+            
+        </div>
+        <div class="box">
+            <h1>E-commerce</h1>Online retailers with a global clientele employ currency converters to exhibit prices in diverse currencies, enhancing the shopping experience and broadening their customer base.A currency converter is handy when dealing with
+            eCommerce in several important ways: International Transactions: eCommerce stores often cater to customers from all over the world. When customers from different countries visit your store, they will likely have different currencies. A currency
+            converter allows you to display prices in the visitor's local currency, making it easier for them to understand and compare prices. Price Transparency: Converting prices into the visitor's currency increases transparency. It ensures that customers
+            know exactly how much they are paying in their own currency, reducing the chances of surprises or confusion at checkout. Improved User Experience: A currency converter can enhance the user experience by providing a more personalized and user-friendly
+            interface. When customers see prices in their local currency, it feels more familiar and comfortable, increasing their likelihood of making a purchase. Competitive Advantage: Offering a currency converter can give you a competitive advantage
+            over eCommerce stores that do not provide this feature. It can attract international customers who prefer to shop in their own currency, potentially increasing your customer base. Reduced Cart Abandonment: When customers see prices in their
+            local currency, they are less likely to abandon their shopping carts due to confusion or frustration caused by currency conversion issues.
+        </div>
+
+    </div>
+
+    
+    
+    
+    <div class="info">
+        <b>UNIVERSITY NAME:</b> CHITKARA UNIVERSITY, RAJPURA, PUNJAB <br>
+        <b>PROJECT:</b> CURRENCY CONVERTER<br>
+        <b>COURSE NAME:</b> BE CSE<br>
+        <b>STUDENTS:</b><br>
+        <b>VEDANT SAREEN</b> (2301991318)<br>
+        <b>VISHAL KOHLI</b> (2310991320)<br>
+        <b>VIHAAN</b> (2310991319)<br>
+        <b>ASSIGNED DUTIES:</b><br>
+        <b>VEDANT SAREEN:</b> JAVASCRIPT AND LOGIC BUILDING<br>
+        <b>VISHAL KOHLI:</b> HTML CSS FRAMEWORK<br>
+        <b>VIHAN:</b> CONTENT MANAGEMENT<br>
+    </div>
+    <br>
+    
+    <div id="about" style="color: white;backgroud-color:white;">
+        <style>.card1,
+            .card2,
+            .card3 {
+                margin: 20px;
+                border: solid 2px rgb(59, 19, 108);
+                border-radius: 10px;
+            }
+            .abm {
+                padding: auto;
+                margin: auto;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                align-self: auto;
+                position: relative;
+                color: #f1faee;
+                background-color: #100e1d;
+            }</style>
+        <center style="  
+        color: white;font-size:2.5rem;font-family:Copperplate;"><b>Get In Touch With us</b></center>
+        <div class="abm">
+            <div class="card1">
+                <div class="card" style="width: 18rem;background-color: #100e1d;">
+                    <img src="l1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body" style="background-color: white;">
+                        <h5 class="card-title">About Us</h5>
+                        <p class="card-text"> A currency converter is a powerful tool that enables users to quickly and easily convert the value of one currency into another, allowing them to understand the equivalent worth of their domestic currency in a foreign currency. </p>
+    
+                    </div>
+                </div>
+            </div>
+            <div class="card2">
+                <div class="card" style="width:18rem;background-color: #100e1d;text-align: left;">
+                    <img src="l2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body" style="background-color: white;">
+                        <h5 class="card-title">Contact Us</h5>
+                        <p class="card-text">#13, kalka ji enclave extn.,Y block,Rishi Nagar, Ludhiana, Punjab <br>Contact No.: +91 7087603933
+                            <br>Email: uniquev.99@gmail.com <br><br> Linkedin:https://www.linkedin.com/in/vedant-sareen-418358166 <br><br></p>
+    
+                    </div>
+                </div>
+            </div>
+            <div class="card3">
+                <div class="card" style="width: 18rem;background-color: #100e1d;">
+                    <img src="l3.jpg" class="card-img-top" alt="...">
+                    <div class="card-body" style="background-color: white;">
+                        <h5 class="card-title">Support Us</h5>
+                        <p class="card-text">maintainence of website as well keeping it upto date is quite challenging.i will be thankful to the user for his/her support.</p>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    <!-- Include Bootstrap JavaScript (optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    
+
+
+</body>
+
+</html>
